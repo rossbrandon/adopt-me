@@ -70,7 +70,7 @@ class Details extends React.Component {
       <div className="details">
         <Carousel media={media} />
         <div>
-          <h1>{name}</h1>
+          <h1 ref={el => (this.petName = el)}>{name}</h1>
           <h3>Type: {animal}</h3>
           <h3>Breed: {breed}</h3>
           <h3>Sex: {sex}</h3>
