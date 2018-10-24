@@ -1,11 +1,22 @@
 import React from "react";
 import { Link } from "@reach/router";
+import { PetMedia, PetPhoto } from "petfinder-client";
 
-class Pet extends React.Component {
-  render() {
+interface Props {
+  id: string;
+  name: string;
+  animal: string;
+  breed: string;
+  sex: string;
+  media: PetMedia;
+  location: string;
+}
+
+class Pet extends React.Component<Props> {
+  public render() {
     const { id, name, animal, breed, sex, media, location } = this.props;
 
-    let photos = [];
+    let photos: PetPhoto[] = [];
 
     if (media && media.photos && media.photos.photo) {
       photos = media.photos.photo.filter(photo => photo["@size"] === "pn");
